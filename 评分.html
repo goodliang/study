@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>评分</title>
+    <link href="http://links.eventown.com.cn/css/ht-framework.min.css" rel="stylesheet">
+    <link href="http://links.eventown.com.cn/css/common.min.css" rel="stylesheet">
+    <link href="http://links.eventown.com.cn/css/iconfont.css" rel="stylesheet">
+    <style type="text/css" media="screen">
+    #star {
+        padding: 50px;
+        text-align: center;
+    }
+    
+    #star i {
+        color: #ccc;
+    }
+    
+    #tips {
+        color: orange;
+        padding-left: 10px;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="star">
+        <span>评分:</span>
+        <i class="iconfont">&#xe630;</i>
+        <i class="iconfont">&#xe630;</i>
+        <i class="iconfont">&#xe630;</i>
+        <i class="iconfont">&#xe630;</i>
+        <i class="iconfont">&#xe630;</i>
+        <span id="info"></span>
+        <span id="tips">小提示：点击星星就能打分哦~！</span>
+    </div>
+    <script type="text/javascript">
+    var oBox = document.getElementById('star'),
+        aStar = oBox.getElementsByTagName('i'),
+        oInfo = document.getElementById('info'),
+        oTips = document.getElementById('tips'),
+        aText = ['很差', '不满', '一般', '满意', '赞一个'];
+    for (var i = 0; i < aStar.length; i++) {
+        aStar[i].index = i + 1
+        aStar[i].onmouseover = function() {
+            for (var i = 0; i < this.index; i++) {
+                if (this.index > 2) {
+                    aStar[i].style.color = 'orange'
+                } else {
+                    aStar[i].style.color = '#999'
+                }
+
+            }
+        }
+        aStar[i].onmouseout = function() {
+            for (var i = 0; i < aText.length; i++) {
+                aStar[i].style.color = ''
+            }
+        }
+    }
+    </script>
+</body>
+
+</html>

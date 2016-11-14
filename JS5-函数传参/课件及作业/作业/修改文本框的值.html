@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>修改文本框的值</title>
+    <style type="text/css">
+    body {
+        font-size: 20px;
+        line-height: 2em;
+    }
+    
+    input {
+        border: 1px solid #ccc;
+        font-size: 20px;
+        display: inline-block;
+    }
+    
+    input[readonly] {
+        border: 1px solid #fff;
+    }
+    
+    a {
+        padding: 0 10px;
+    }
+    
+    li {
+        list-style: none;
+        overflow: hidden;
+    }
+    
+    li input,
+    li a {
+        float: left;
+    }
+    </style>
+</head>
+
+<body>
+    <ul id="list">
+        <li>
+            <input type="text" name="" value="今天你要干什么" readonly> <a href="###" style="display:block">修改</a><a href="###" style="display:none">保存</a><a href="###" style="display:none">取消</a>
+        </li>
+        <li>
+            <input type="text" name="" value="明天你要完成什么" readonly> <a href="###" style="display:block">修改</a><a href="###" style="display:none">保存</a><a href="###" style="display:none">取消</a>
+        </li>
+        <li>
+            <input type="text" name="" value="怎么样安排你的工作计划" readonly> <a href="###" style="display:block">修改</a><a href="###" style="display:none">保存</a><a href="###" style="display:none">取消</a>
+        </li>
+        <li>
+            <input type="text" name="" value="未来你能达到什么水平" readonly> <a href="###" style="display:block">修改</a><a href="###" style="display:none">保存</a><a href="###" style="display:none">取消</a>
+        </li>
+    </ul>
+    <script>
+    var line = document.getElementsByTagName('li')
+    function item(aLi) {
+        var oInput = aLi.getElementsByTagName('input')[0],
+            modify = aLi.getElementsByTagName('a')[0],
+            submit = aLi.getElementsByTagName('a')[1],
+            cancel = aLi.getElementsByTagName('a')[2];
+        var text = oInput.value
+        modify.onclick = function() {
+            oInput.removeAttribute('readonly')
+            this.style.display = 'none';
+            submit.style.display = 'block';
+            cancel.style.display = 'block';
+        }
+        submit.onclick = function() {
+            text = oInput.value
+            oInput.setAttribute('readonly', 'readonly');
+            modify.style.display = 'block';
+            this.style.display = 'none';
+            cancel.style.display = 'none';
+        }
+        cancel.onclick = function() {
+            oInput.value = text
+            oInput.setAttribute('readonly', 'readonly');
+            modify.style.display = 'block';
+            submit.style.display = 'none';
+            this.style.display = 'none';
+        }
+
+    }
+    for (var i = 0; i < line.length; i++) {
+        item(line[i])
+    };
+    </script>
+</body>
+
+</html>

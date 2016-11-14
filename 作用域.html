@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css" media="screen">
+    li {
+        height: 30px;
+        border-bottom: 1px solid #999
+    }
+    
+    #qq {
+        position: relative;
+        width: 100%;
+    }
+    
+    #qq li {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        list-style-type: none;
+        border-radius: 100%;
+        background: #69c;
+        color: #fff;
+        text-align: center;
+    }
+    </style>
+</head>
+
+<body>
+    <ul id="list">
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <div id="panel">
+        <p>明天你又要做什么</p>
+    </div>
+    <div id="qq" style="margin-bottom: 100px;">
+    </div>
+    <input type="button" name="" value="确定1" id="btn">
+    <input type="button" name="" value="确定2" id="btn">
+    <input type="button" name="" value="确定3" id="btn">
+    <input type="button" name="" value="确定4" id="btn">
+    <h3 id="block"></h3>
+    <script type="text/javascript">
+    var oIpnut = document.getElementsByTagName('input')
+    for (var i = 0; i<oIpnut.length; i++){
+
+        oIpnut[i].onclick = function (){
+            for (var i = 0; i<oIpnut.length; i++){
+                oIpnut[i].style.background = "red"
+            }
+        }
+    }
+    </script>
+</body>
+
+</html>

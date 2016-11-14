@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>无标题文档</title>
+</head>
+
+<body>
+    请输入QQ号码：
+    <input type="text" id="box" />
+    <input type="button" value="判断" id="btn" />
+    <h3 id="block"></h3>
+    <ul id="tip">
+        <li>有没有输入</li>
+        <li>输入的是不是数字</li>
+        <li>不能有0在前面</li>
+        <li>不能是小数</li>
+        <li>输入的数字必须在5位以上、10位以内</li>
+    </ul>
+    <script type="text/javascript">
+    var oInp = document.getElementById('box')
+    var oBtn = document.getElementById('btn')
+    var oTip = document.getElementById('tip')
+    var oHelp = document.getElementById('block')
+    var val = ''
+    oBtn.onclick = function() {
+        val = oInp.value
+            // console.log(typeof Number(val))
+            // console.log(Number(val))
+        if (val == '') {
+            oHelp.innerHTML = '请输入内容'
+        } else if (typeof Number(val) == 'number' && isNaN(val)) {
+            oHelp.innerHTML = '输入的是不是数字'
+        } else if (val[0] == 0) {
+            oHelp.innerHTML = '前面不能有0'
+        } else if (parseInt(val) !== parseFloat(val)) {
+            oHelp.innerHTML = '不能有小数点'
+        } else if (val.length < 5 || val.length > 10) {
+            oHelp.innerHTML = '输入的数字必须在5位以上、10位以内'
+        } else {
+            oHelp.innerHTML = '正确'
+        }
+        console.log(val.length);
+    }
+    </script>
+</body>
+
+</html>

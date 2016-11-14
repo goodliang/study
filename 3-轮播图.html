@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style type="text/css" media="screen">
+      *{
+      	margin: 0;
+      	padding: 0;
+      }
+	  ul { list-style-type:none;}
+	 
+	.slide-box{
+		width: 720px;
+		height: 450px;
+		margin:100px auto;
+		position: relative;
+	}
+	#left,#right{
+		font-size: 40px;
+		background: #000;
+		color:#fff;
+		padding:10px 20px;
+		opacity: 0.5;
+		position: absolute;
+		top:50%;
+		margin-top: -40px;
+		text-decoration: none;
+	}
+	#left{
+		left:0px;
+	}
+	#right{
+		right:0px;
+	}
+	#left:hover,#right:hover{
+		opacity: 0.7
+	}
+	#num,#text{
+		padding:5px 0;
+		text-align: center;
+		color:#fff;
+		opacity:0.5;
+		background: #000;
+		position: absolute;
+		width: 100%;
+		display:block;
+	}
+	#num{
+		top: 0;
+	}
+	#text{
+		bottom:0;
+	}
+	#pic{
+		width: 720px;
+		height: 450px;
+	}
+	.slide-box ul{
+		width: 30px;
+		position: absolute;
+		right:-40px;
+		top:0;
+	}
+	.slide-box li{
+		width: 30px;
+		height:30px;
+		background: #FF8080;
+		margin-bottom:10px;
+		cursor:pointer;
+		position: relative;
+	}
+	.slide-box li img{
+		width: 50px;
+		height:50px;
+		position: absolute;
+		right:-60px;
+		top:0px;
+		display:none;
+	}
+	.slide-box li.active{background:#A6E22E;}
+	.slide-box li:hover img{
+		display:block;
+	}
+</style>
+<script type="text/javascript" src="js/slide.js"></script>
+<script>
+window.onload = function() {
+	var oNum = document.getElementById("num")
+	var oPic = document.getElementById("pic")
+	var oText = document.getElementById("text")
+	var oPre = document.getElementById("left")
+	var oNext = document.getElementById("right")
+	var oUl = document.getElementsByTagName("ul")[0]
+	var aImg = ['img/pic1.jpg', 'img/pic2.jpg', 'img/pic3.jpg', 'img/pic4.jpg', 'img/pic5.jpg']
+	var aText = ['雪山中的上屋', '来自星星的五彩船', '一个像夏天 一个像秋天', '沉思中的美女', '盛开的玫瑰花']
+	var arrImg = [];
+	var num = 0;
+	for(var i = 0; i<aImg.length; i++){
+		oUl.innerHTML+= "<li><img src=''></li>"
+	}
+	var oLi = oUl.getElementsByTagName("li")
+	
+	//初始化
+	function Tab(){
+		oPic.src = aImg[num]
+		oText.innerHTML = aText[num]
+		oNum.innerHTML = num+1+"/"+aImg.length
+		for(var i = 0; i<oLi.length; i++){
+			oLi[i].className = ""
+		}
+		oLi[num].className = "active"
+	}
+	Tab ()
+	for(var i = 0; i<oLi.length; i++){
+		oLi[i].index = i
+		var oSm = oLi[i].getElementsByTagName("img")
+		for(var j = 0; j<oSm.length; j++){
+			arrImg.push( oSm[j] );
+		}
+		oLi[i].onclick = function(){
+			num = this.index
+			Tab() 
+		}
+		oLi[i].onmouseover = function(){
+			arrImg[this.index].src =aImg[this.index] 
+		}
+	}
+	oPre.onclick = function(){
+		num ++
+		if(num>aImg.length-1){
+			num = 0
+		}
+		Tab() 
+	}
+	oNext.onclick = function(){
+		num --
+		if(num<0){
+			num = aImg.length-1
+		}
+		Tab() 
+	}
+}
+</script>
+</head>
+<body>
+	<div class="slide-box">
+        <a href="javascript:;" id="left"><</a>
+		<a href="javascript:;" id="right">></a>
+		<img src="" id="pic">
+		<p id="num">图片数量初始化中...</p>
+		<p id="text">标题初始化中...</p>
+        <ul>
+        </ul>
+        <img src="" >
+	</div>
+</body>
+</html>

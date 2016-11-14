@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style type="text/css" media="screen">
+      *{
+      	margin: 0;
+      	padding: 0;
+      }
+	.slide-box{
+		width: 720px;
+		height: 450px;
+		position: relative;
+	}
+	#left,#right{
+		font-size: 40px;
+		background: #000;
+		color:#fff;
+		padding:10px 20px;
+		opacity: 0.5;
+		position: absolute;
+		top:50%;
+		margin-top: -40px;
+		text-decoration: none;
+	}
+	#left{
+		left:0px;
+	}
+	#right{
+		right:0px;
+	}
+	#left:hover,#right:hover{
+		opacity: 0.7
+	}
+	#num,#text{
+		padding:5px 0;
+		text-align: center;
+		color:#fff;
+		opacity:0.5;
+		background: #000;
+		position: absolute;
+		width: 100%;
+		display:block;
+	}
+	#num{
+		top: 0;
+	}
+	#text{
+		bottom:0;
+	}
+	#pic{
+		width: 720px;
+		height: 450px;
+	}
+</style>
+<script type="text/javascript" src="js/slide.js"></script>
+
+</head>
+<body>
+<input type="button" name="" id="btn1" value="循环切换">
+<input type="button" name="" id="btn2" value="顺序切换">
+	<div class="slide-box">
+		<a href="javascript:;" id="left"><</a>
+		<a href="javascript:;" id="right">></a>
+		<img src="" id="pic">
+		<p id="num">图片数量初始化中...</p>
+		<p id="text">标题初始化中...</p>
+	</div>
+</body>
+</html>

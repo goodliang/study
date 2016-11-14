@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>定时器</title>
+    <link href="http://links.eventown.com.cn/css/ht-framework.min.css" rel="stylesheet">
+    <link href="http://links.eventown.com.cn/css/common.min.css" rel="stylesheet">
+    <link href="http://links.eventown.com.cn/css/iconfont.css" rel="stylesheet">
+    <script src="js/function.js" type="text/javascript"></script>
+    <style type="text/css" media="screen">
+    #div1 {
+        width: 200px;
+        height: 200px;
+        background: red;
+        position: absolute;
+        top:30px;
+        left:10px;
+    }
+    </style>
+</head>
+
+<body>
+    <input type="button" name="" value="查看" id="btn1">
+    <div id="div1">11111111</div>
+    <script type="text/javascript">
+    var time = null
+    $('btn1').onclick = function (){
+        // sclearInterval(time)
+        setInterval(function(){
+            var speed = parseInt(getStyle($('div1'),'left')) + 10
+            $('div1').style.left = speed +'px'
+        },100)
+    }
+    </script>
+</body>
+
+</html>

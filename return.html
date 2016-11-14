@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>return</title>
+    <link href="http://links.eventown.com.cn/css/ht-framework.min.css" rel="stylesheet">
+    <link href="http://links.eventown.com.cn/css/common.min.css" rel="stylesheet">
+    <link href="http://links.eventown.com.cn/css/iconfont.css" rel="stylesheet">
+    <script src="js/function.js" type="text/javascript"></script>
+    <style type="text/css" media="screen">
+    #div1 {
+        width: 100%;
+        height: 200px;
+        background: red;
+    }
+    </style>
+    <script type="text/javascript">
+    $(function() {
+        $('btn1').onclick = function() {
+            alert(getStyle($('div1'),'backgroundColor'))
+            $('div1').style.background = 'yellow'
+        }
+    })
+    </script>
+</head>
+
+<body>
+    <input type="button" name="" value="查看" id="btn1">
+    <div id="div1">11111111</div>
+    <script type="text/javascript">
+    // alert(fn1(7, 10))
+    // alert(fn1(17, 9))
+
+    function fn1(k, v) {
+        var arr = []
+        if (k > v) {
+            for (var i = v; i <= k; i++) {
+                arr.push(i)
+            };
+        } else {
+            for (var i = k; i <= v; i++) {
+                arr.push(i)
+            };
+        }
+
+        return arr
+        console.log(arr);
+    }
+    // return 返回值
+    // 函数名加括号  在等于return后面的值
+    // alert(fn2(1, 2, 3, '+'));
+    // alert(fn2(10,2,3,4,'-'))
+    function fn2() {
+        var n = 0;
+        var l = arguments[0] * 2
+        var m = arguments[arguments.length - 1]
+        for (var i = 0; i < arguments.length - 1; i++) {
+            m == '+' ? n += arguments[i] : l -= arguments[i];
+        };
+        return n
+    }
+    </script>
+</body>
+
+</html>

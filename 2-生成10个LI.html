@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style type="text/css" media="screen">
+      *{
+      	margin: 0;
+      	padding: 0;
+      }
+      li{
+      	width: 50px;
+      	height: 50px;
+      	display: block;
+      	float:left;
+      	background: #000;
+      	margin-left: 10px;
+      	margin-top: 30px;
+      	color:#fff;
+      	line-height: 50px;
+      	text-align: center;
+      	font-size: 30px;
+      }
+</style>
+<script type="text/javascript">
+window.onload = function() {
+      var oUL = document.getElementById("list")
+      var oBtn = document.getElementsByTagName("input")[0]
+      var arr = ["red", 'blue', "yellow", "green"]
+      var aLI = ''
+      var onoff = true
+      oBtn.onclick = function() {
+            if (onoff) {
+                  for (var i = 0; i < 10; i++) {
+                        oUL.innerHTML += "<li>" + i + "</li>"
+                  }
+                  aLI = oUL.getElementsByTagName("li")
+                  for (var i = 0; i < aLI.length; i++) {
+                        aLI[i].style.background = arr[i % 4]
+                  }
+
+            }
+            onoff = false
+      }
+}
+</script>
+
+</head>
+<body>
+<input type="button" name="" value="点击生成10个LI">
+<ul id="list">
+	
+</ul>
+</body>
+</html>

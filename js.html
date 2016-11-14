@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css" media="screen">
+    li {
+        height: 30px;
+        border-bottom: 1px solid #999
+    }
+    
+    #qq {
+        position: relative;
+        width: 100%;
+    }
+    
+    #qq li {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        list-style-type: none;
+        border-radius: 100%;
+        background: #69c;
+        color: #fff;
+        text-align: center;
+    }
+    </style>
+</head>
+
+<body>
+    <ul id="list">
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <div id="panel">
+        <p>明天你又要做什么</p>
+    </div>
+    <div id="qq" style="margin-bottom: 100px;">
+    </div>
+    <input type="text" name="" value="" id="box">
+    <input type="button" name="" value="确定" id="btn">
+    <h3 id="block"></h3>
+    <script type="text/javascript">
+    var oUl = document.getElementById('list')
+    var oDiv = document.getElementById('panel')
+    var oQQ = document.getElementById('qq')
+    var oInp = document.getElementById('box')
+    var oBtn = document.getElementById('btn')
+    var oHelp = document.getElementById('block')
+    var aLi = oUl.getElementsByTagName('li')
+    var aText = ['今天', '明天', '后天']
+    for (var i = 0; i < aLi.length; i++) {
+        aLi[i].innerHTML = aText[i]
+        aLi[i].onclick = function() {
+            alert(this.innerHTML)
+        }
+    }
+    var str = ''
+    for (var j = 0; j < 30; j++) {
+        str += '<button type="button">' + '按钮' + j + '</button>'
+    }
+    oDiv.innerHTML = str
+    var icon = ''
+    for (var k = 0; k < 20; k++) {
+        icon += '<li style=' + 'left:' + 60 * (k % 10) + 'px;> K </li>'
+    }
+    oQQ.innerHTML = icon;
+    var arr = [
+        [2, 3],
+        [4, 5, 6],
+        [7, 8, 9, 10]
+    ]
+    for (var i = 0; i < arr.length; i++) {
+        for (var j = 0; j < arr[i].length; j++) {
+            // console.log(arr[i][j]);
+        }
+    }
+    var val = ''
+    oBtn.onclick = function() {
+        val = oInp.value
+        console.log(Number(val));
+        if (isNaN(val)) {
+            oHelp.innerHTML = val+'-----不是数字'
+        } else {
+            oHelp.innerHTML = val+'-----是数字'
+        }
+    }
+    var arr = '0023'
+    alert(typeof Number(arr))
+    alert(isNaN (Number(arr)))
+    alert(Number(arr));
+    // if(12<45){
+    //     alert(true)
+    // }else{
+    //     alert(false)
+    // }
+    12>45 ? alert(false):alert(true)
+    </script>
+</body>
+
+</html>

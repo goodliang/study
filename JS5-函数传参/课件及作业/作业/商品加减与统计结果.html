@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>加减计算</title>
+</head>
+
+<body>
+    <ul id="list">
+        <li>
+            <input type="button" value="-" />
+            <strong>7</strong>
+            <input type="button" value="+" /> 单价：
+            <em>12.5元</em> 小计：
+            <span>0元</span>
+        </li>
+        <li>
+            <input type="button" value="-" />
+            <strong>3</strong>
+            <input type="button" value="+" /> 单价：
+            <em>10.5元</em> 小计：
+            <span>0元</span>
+        </li>
+        <li>
+            <input type="button" value="-" />
+            <strong>5</strong>
+            <input type="button" value="+" /> 单价：
+            <em>8.5元</em> 小计：
+            <span>0元</span>
+        </li>
+        <li>
+            <input type="button" value="-" />
+            <strong>0</strong>
+            <input type="button" value="+" /> 单价：
+            <em>8元</em> 小计：
+            <span>0元</span>
+        </li>
+        <li>
+            <input type="button" value="-" />
+            <strong>1</strong>
+            <input type="button" value="+" /> 单价：
+            <em>14.5元</em> 小计：
+            <span>0元</span>
+        </li>
+    </ul>
+    <p>
+        商品合计共：<span id='all-num'>0</span>件，共花费了：<span id="all-price">0</span>元
+        <br /> 其中最贵的商品单价是：<span id="max-price">0</span>元
+    </p>
+    <script>
+    var oBox = document.getElementById('list'),
+        oItem = oBox.getElementsByTagName('li'),
+        oStrong = oBox.getElementsByTagName('strong'),
+        oSpan = oBox.getElementsByTagName('span'),
+        oEm = oBox.getElementsByTagName('em'),
+        allNum = document.getElementById('all-num'),
+        allPrice = document.getElementById('all-price'),
+        maxPrice = document.getElementById('max-price');
+
+    for (var i = 0; i < oItem.length; i++) {
+        Calculation(oItem[i])
+    }
+
+    function Calculation(oItem) {
+        var min = oItem.getElementsByTagName('input')[0],
+            max = oItem.getElementsByTagName('input')[1],
+            num = oItem.getElementsByTagName('strong')[0],
+            unit = oItem.getElementsByTagName('em')[0],
+            subtotal = oItem.getElementsByTagName('span')[0],
+            num_val = num.innerHTML;
+
+        function defaultPrice() {
+            num.innerHTML = num_val
+            subtotal.innerHTML = num_val * parseFloat(unit.innerHTML) + '元';
+        }
+        defaultPrice()
+        min.onclick = function() {
+            num_val--
+            if (num_val < 0) {
+                num_val = 0
+            }
+            defaultPrice()
+            allNumFn(oStrong, allNum)
+            allNumFn(oSpan, allPrice)
+            maxNumFn()
+        }
+        max.onclick = function() {
+            num_val++
+            defaultPrice()
+            allNumFn(oStrong, allNum)
+            allNumFn(oSpan, allPrice)
+            maxNumFn()
+        }
+    }
+
+    function allNumFn(dom, all) {
+        var val_Num = 0
+        for (var i = 0; i < dom.length; i++) {
+            var _num = parseFloat(dom[i].innerHTML);
+            val_Num += _num
+        }
+        all.innerHTML = val_Num
+    }
+
+    function maxNumFn() {
+        var max = 0;
+        for (var i = 0; i < oStrong.length; i++) {
+            var num = Number(oStrong[i].innerHTML)
+            if (num > 0) {
+                for (var j = 0; j < oEm.length; j++) {
+                    var _num = parseFloat(oEm[i].innerHTML);
+                    if (_num > max) {
+                        max = _num
+                    }
+                }
+                maxPrice.innerHTML = max
+            }
+        }
+
+    }
+    maxNumFn()
+    allNumFn(oStrong, allNum)
+    allNumFn(oSpan, allPrice)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>微信</title>
+</head>
+<style type="text/css" media="screen">
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font: 12px/1.5 "微软雅黑";
+}
+.wx-box{
+	width:600px;
+	height: 760px;
+	margin:0 auto;
+	position: relative;
+}
+.wx-main{
+	width:600px;
+	height: 760px;
+	position: absolute;
+	left: 0px;
+	top:0;
+}
+.wx-box img{
+	width:100%;
+}
+.wx-content{
+	width:300px;
+	height: 534px;
+	margin:114px auto;
+}
+.wx-bot{
+	position: absolute;
+	left:150px;
+	bottom:112px;
+	width:300px;
+	padding:10px 0;
+	background: #f2f2f2;
+	border-top: 1px solid #dadada;
+}
+#text-box{
+	position: absolute;
+	left:150px;
+	top:115px;
+	width:280px;
+	height: 460px;
+	overflow: auto;
+	padding:10px;
+}
+.wx-bot span{
+	width:32px;
+	height: 32px;
+	display: inline-block;
+	float: left;
+	cursor: pointer;
+}
+#icon1{
+	width:32px;
+	height: 32px;
+}
+#input1{
+	padding:5px;
+	width: 190px;
+	display: inline-block;
+}
+#btn1{
+	padding:6px 10px;
+	margin-left: 5px;
+}
+.boy-text ,.girl-text {
+	padding:5px;
+}
+.boy-text span{
+	position: absolute;
+	margin-left: -5px;
+}
+.girl-text span{
+	position: absolute;
+	right:10px;
+}
+.girl-text{
+	text-align: right;
+}
+.boy-text p{
+	display:inline-block;
+	margin-left: 35px;
+	padding:5px;
+	border: 1px solid #f2f2f2;
+	border-radius: 5px;
+
+}
+.girl-text p{
+	display:inline-block;
+	margin-right: 35px;
+	padding:5px;
+	border: 1px solid #f2f2f2;
+	border-radius: 5px;
+	background: #c4f7ff;
+}
+.boy-text span img, .girl-text span img {
+	width:32px;
+	height: 32px;
+}
+</style>
+<script type="text/javascript" src="js/wx.js"></script>
+<body>
+	<div class="wx-box">
+		<img src="img/iphone.png" alt="" >
+		<div class="wx-main">
+			<div class="wx-content">
+			      <div id="text-box"></div>
+				<div class="wx-bot"><span id="icon-box"><img id="icon1" src="img/girl.png" alt=""></span><input id="input1" type="text"><button id="btn1">发送</button></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
