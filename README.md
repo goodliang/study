@@ -1,2 +1,2 @@
-# study
-学习JS练习  
+# cruise
+npm install
